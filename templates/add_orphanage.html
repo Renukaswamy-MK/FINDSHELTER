@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}Add Orphanage{% endblock %}
+{% block content %}
+    <h2>Add Orphanage</h2>
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label(class="form-control-label") }}
+            {{ form.name(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.location.label(class="form-control-label") }}
+            {{ form.location(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.description.label(class="form-control-label") }}
+            {{ form.description(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+{% endblock %}

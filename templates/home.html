@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <h1>Orphanages</h1>
+
+    <!-- Search Form -->
+    <form method="POST" action="{{ url_for('home') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.location.label(class="form-label") }}
+            {{ form.location(class="form-control") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <!-- List of Orphanages -->
+     <div></div>
+    <ul>
+        {% for orphanage in orphanages %}
+            <li>{{ orphanage.name }} - {{ orphanage.location }}</li>
+        {% endfor %}
+    </ul>
+
+    <a class="btn btn-primary" href="{{ url_for('orphanages') }}">Add Orphanage</a>
+    <a class="btn btn-primary" href="{{ url_for('orphans') }}">Add Orphan</a>
+{% endblock %}
